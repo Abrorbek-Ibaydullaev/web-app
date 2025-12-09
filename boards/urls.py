@@ -1,0 +1,16 @@
+"""
+Board URLs
+boards/urls.py
+"""
+
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import BoardViewSet, LabelViewSet
+
+router = DefaultRouter()
+router.register(r'', BoardViewSet, basename='board')
+router.register(r'labels', LabelViewSet, basename='label')
+
+urlpatterns = [
+    path('', include(router.urls)),
+]
