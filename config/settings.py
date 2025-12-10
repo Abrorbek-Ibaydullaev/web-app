@@ -1,5 +1,5 @@
 """
-Django settings for Trello Clone project.
+Django settings for  project.
 config/settings.py
 """
 
@@ -230,8 +230,8 @@ DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='noreply@yourdomain.co
 
 # DRF Spectacular (API Documentation)
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Trello Clone API',
-    'DESCRIPTION': 'Complete API documentation for Trello Clone application',
+    'TITLE': 'API',
+    'DESCRIPTION': 'Complete API documentation for  application',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
     'COMPONENT_SPLIT_REQUEST': True,
