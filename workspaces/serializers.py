@@ -45,17 +45,29 @@ class WorkspaceSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         """Create workspace and add owner as admin"""
         request = self.context.get('request')
+        # workspace = Workspace.objects.create(
+        #     owner=request.user,
+        #     **validated_data
+        # )
+        validated_data.pop('owner', None)
         workspace = Workspace.objects.create(
-            owner=request.user,
+            owner=request.user, # The *correct* way to set the owner in this context
             **validated_data
         )
-        # Add owner as admin member
+
         WorkspaceMember.objects.create(
             workspace=workspace,
             user=request.user,
             role='admin'
         )
         return workspace
+        # # Add owner as admin member
+        # WorkspaceMember.objects.create(
+        #     workspace=workspace,
+        #     user=request.user,
+        #     role='admin'
+        # )
+        # return workspace
 
 
 class WorkspaceDetailSerializer(WorkspaceSerializer):
